@@ -1,38 +1,239 @@
-.App {
-  text-align: center;
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nuosu SIL', serif;
+}
+.navBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+}
+  
+.navbar-brand{
+  color: black;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.navbar-brand:hover{
+  color: black;
+
+}
+.navbar-brand span:first-child , .navbar-brand span:nth-child(3){
+  
+  background-color: #CA4246;
+   background-image: linear-gradient(
+        45deg,
+        #CA4246 16.666%, 
+        #E16541 16.666%, 
+        #E16541 33.333%, 
+        #F18F43 33.333%, 
+        #F18F43 50%, 
+        #8B9862 50%, 
+        #8B9862 66.666%, 
+        #476098 66.666%, 
+        #476098 83.333%, 
+        #A7489B 83.333%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -webkit-animation: gradient-text-animation 1s ease-in-out infinite;
+
+}
+.navbar-brand span:nth-child(2), .navbar-brand span:last-child{
+  
+  background-color: #CA4246;
+   background-image: linear-gradient(
+        45deg,
+        #8aff5c 16.666%, 
+        #85beff 16.666%, 
+        #f049ff 33.333%, 
+        #064f58 33.333%, 
+        #da60ff 50%, 
+        #595a5a 50%, 
+        #f700ad 66.666%, 
+        #2062f1 66.666%, 
+        #00226b 83.333%, 
+        #740465 83.333%);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -webkit-animation: gradient-text-animation 1s ease-in-out infinite;
+
+}
+.nav-link{
+  color: black;
+}
+.nav-menu{
+  display: flex;
+}
+/* Ceating a huamburger */
+.menu-bar span{
+  background-color: black;
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  display: block;
+  position: relative;
+  transition: 0.4s;
+}
+.menu-bar{
+  margin-top: 5px;
+  display: none;
+}
+.btns{
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+/* writing media query for humburger */
+@media screen and (max-width: 768px){
+  .btns{
+    display: flex;
+    justify-content: space-between;
   }
+  .menu-bar{
+    display: block;
+  }
+  .nav-menu{
+    display: none;
+  }
+  .active{
+      color: #00226b;
+  }
+  
+  .open{
+    background-color: white;
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    left: 0;
+    padding-bottom: 10px;
+    display: block;
+    text-align: center;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out; 
+     --webkit-transition: all 0.4s ease-in-out;
+  }
+  .open nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  .menu-active span:first-child{
+    transform: rotate(45deg);
+    top: 10px;
+    transition: 0.5s ease-in;
+  }
+    
+  .menu-active span:nth-child(2){
+    display: none;
+  }
+  .menu-active span:last-child{
+    transform: rotate(-50deg);
+    top: 3px;
+    transition: 0.5s ease-in;
+  }
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.description-text{
+  text-align: center;
+  background-color:#541690;
+  height: 500px;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.description-text p{
+  padding: 10px 20px;
+  color: rgb(189, 187, 187);
+  font-style: italic;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  word-spacing: 1.5px;
+
+}
+.description-text h2{
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.description-img img{
+  height: 500px;
+}
+@media screen and (max-width: 768px){
+  .description-img{
+    display: none;
+  }
+}
+
+.sidebar{
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     position: fixed;
+     top:14.5% ;
+     left: 0;
+     background-color: #00226b;
+     height: 100%;
+     width: 20%;
+}
+.side-menu li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    /* border-bottom:1px solid gray ; */
+    width: 100%;
+}
+.side-menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+     margin: 20px;
+}
+.side-menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.side-menu ul li a:hover{
+  color: rgb(202, 192, 192);
+}
+.side-menu ul li a:hover .side-menu li{
+   border-bottom:1px solid gainsboro ;
+}
+.fas{
+  cursor: pointer;
+}
+.icons{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-left: 50px;
+}
+.icons i{
   color: white;
-}
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note-container{
+  margin-left: 30%;
+  margin-top: 8%;
+}
+.form-control{
+  width: 70%;
 }
